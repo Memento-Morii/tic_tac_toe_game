@@ -29,6 +29,11 @@ class CustomTextStyle {
     color: Colors.black,
     fontFamily: GoogleFonts.poppins().fontFamily,
   );
+  static TextStyle blackBoldBodyOne = TextStyle(
+    fontSize: 15,
+    color: Colors.black,
+    fontFamily: GoogleFonts.poppins(fontWeight: FontWeight.bold).fontFamily,
+  );
   static TextStyle whiteBodyOne = TextStyle(
     fontSize: 14,
     color: Colors.white,

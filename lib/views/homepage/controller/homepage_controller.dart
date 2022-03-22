@@ -3,6 +3,7 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tic_tac_toe_game/data/tic_tac_model.dart';
+import 'package:tic_tac_toe_game/themes/custom_text_styles.dart';
 
 class HomePageController extends GetxController {
   // late List<int> playerOneChoices;
@@ -56,12 +57,14 @@ class HomePageController extends GetxController {
     tictac.isEnabled.value = false;
     winner = handleWinner();
     if (winner == 1) {
-      Get.snackbar("Player One", " is the Winner ");
+      showWinningDialog(Get.context!, true);
+      // Get.snackbar("Player One", " is the Winner ");
       for (var element in allButtons) {
         element.isEnabled.value = false;
       }
     } else if (winner == 2) {
-      Get.snackbar("Player Two", " is the Winner ");
+      showWinningDialog(Get.context!, false);
+      // Get.snackbar("Player Two", " is the Winner ");
       for (var element in allButtons) {
         element.isEnabled.value = false;
       }
@@ -120,5 +123,35 @@ class HomePageController extends GetxController {
     } else {
       return 3;
     }
+  }
+
+  void showWinningDialog(BuildContext context, bool isPlayerOne) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: isPlayerOne
+                ? Image.asset(
+                    'assets/happy-red.png',
+                    height: 40,
+                  )
+                : Image.asset(
+                    'assets/happy-yellow.png',
+                    height: 40,
+                  ),
+            content: Padding(
+              padding: const EdgeInsets.only(left: 30),
+              child: isPlayerOne
+                  ? Text(
+                      'Player One has Won!',
+                      style: CustomTextStyle.blackBoldBodyOne,
+                    )
+                  : Text(
+                      'Player Two has Won!',
+                      style: CustomTextStyle.blackBoldBodyOne,
+                    ),
+            ),
+          );
+        });
   }
 }
