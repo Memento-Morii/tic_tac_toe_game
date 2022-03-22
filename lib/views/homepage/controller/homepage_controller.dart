@@ -57,8 +57,14 @@ class HomePageController extends GetxController {
     winner = handleWinner();
     if (winner == 1) {
       Get.snackbar("Player One", " is the Winner ");
+      for (var element in allButtons) {
+        element.isEnabled.value = false;
+      }
     } else if (winner == 2) {
       Get.snackbar("Player Two", " is the Winner ");
+      for (var element in allButtons) {
+        element.isEnabled.value = false;
+      }
     }
   }
 
