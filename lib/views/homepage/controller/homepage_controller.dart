@@ -20,6 +20,9 @@ class HomePageController extends GetxController {
   }
 
   void init() {
+    if (Get.arguments != null) {
+      userChoiceType = Get.arguments;
+    }
     playerOneChoices = HashSet<int>();
     playerTwoChoices = HashSet<int>();
     allButtons.value = [
@@ -40,12 +43,12 @@ class HomePageController extends GetxController {
   void pressButton(TicTacModel tictac) {
     // setState(() {
     if (activePlayer.value == 1) {
-      tictac.type = "X";
+      tictac.type = userChoiceType;
       tictac.backgroundColor.value = Colors.red;
       activePlayer.value = 2;
       playerOneChoices.add(tictac.gameId);
     } else {
-      tictac.type = "0";
+      tictac.type = userChoiceType == "X" ? "O" : "X";
       tictac.backgroundColor.value = Colors.yellow;
       activePlayer.value = 1;
       playerTwoChoices.add(tictac.gameId);

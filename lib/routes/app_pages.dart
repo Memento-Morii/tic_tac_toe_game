@@ -3,6 +3,8 @@ import 'package:tic_tac_toe_game/views/homepage/bindings/homepage_bindings.dart'
 import 'package:tic_tac_toe_game/views/homepage/controller/homepage_controller.dart';
 import 'package:tic_tac_toe_game/views/homepage/homepage_view.dart';
 import 'package:tic_tac_toe_game/views/onboarding/onboarding_view.dart';
+import 'package:tic_tac_toe_game/views/pick_a_side.dart/bindings/pick_a_side_bindings.dart';
+import 'package:tic_tac_toe_game/views/pick_a_side.dart/pick_a_side.dart';
 
 part 'app_routes.dart';
 
@@ -17,6 +19,11 @@ class AppPages {
       name: Routes.homepage,
       page: () => const HomePageView(),
       binding: HomePageBindings(),
+    ),
+    GetPage(
+      name: Routes.pickASide,
+      page: () => const PickASide(),
+      binding: PickASideBindings(),
     ),
   ];
 }

@@ -51,7 +51,7 @@ class OnboardingView extends StatelessWidget {
                       ),
                     ),
                   ),
-                  onPressed: () => Get.toNamed(Routes.homepage),
+                  onPressed: () => Get.toNamed(Routes.pickASide),
                   child: Text(
                     'Continue',
                     style: CustomTextStyle.blackBodyOne,
