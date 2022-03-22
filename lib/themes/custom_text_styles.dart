@@ -7,4 +7,9 @@ class CustomTextStyle {
     color: Colors.white,
     fontFamily: GoogleFonts.poppins(fontWeight: FontWeight.bold).fontFamily,
   );
+  static TextStyle blackBodyOne = TextStyle(
+    fontSize: 14,
+    color: Colors.black,
+    fontFamily: GoogleFonts.poppins().fontFamily,
+  );
 }
